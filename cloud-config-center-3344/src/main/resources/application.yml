@@ -7,12 +7,12 @@ spring:
     config:
       server:
         git:
-          uri:  填写你自己的github路径
+          uri: https://github.com/zn5948927/sprincloud-config.git
           search-paths:
             - springcloud-config
       label: master
 eureka:
   client:
     service-url:
-      defaultZone:  http://localhost:7001/eureka
+      defaultZone: http://localhost:7001/eureka
 
