@@ -11,8 +11,21 @@ spring:
           search-paths:
             - springcloud-config
       label: master
+
+  rabbitmq:
+    host: 39.105.146.77
+    port: 5672
+    username: admin
+    password: 5948927zn
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
 
