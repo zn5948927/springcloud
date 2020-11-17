@@ -1,4 +1,4 @@
-package com.guigu.springcloud.myhandler;
+package com.guigu.springcloud.alibaba.myhandler;
 
 import com.guigu.springcloud.entities.CommonResult;
 import com.sun.deploy.security.BlockedException;
