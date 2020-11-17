@@ -14,4 +14,8 @@ public class CustomerBlockHandler {
     public static CommonResult handlerException(BlockException exception) {
         return new CommonResult(2020, "自定义限流信息。。。。");
     }
+
+    public static CommonResult handlerException2(BlockException exception) {
+        return new CommonResult(4040, "自定义限流信息。。。。");
+    }
 }
