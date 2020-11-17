@@ -1,7 +1,7 @@
 package com.guigu.springcloud.alibaba.myhandler;
 
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.guigu.springcloud.entities.CommonResult;
-import com.sun.deploy.security.BlockedException;
 
 /**
  * @program: springcloud
@@ -11,7 +11,7 @@ import com.sun.deploy.security.BlockedException;
  **/
 public class CustomerBlockHandler {
 
-    public static CommonResult handlerException(BlockedException exception) {
+    public static CommonResult handlerException(BlockException exception) {
         return new CommonResult(2020, "自定义限流信息。。。。");
     }
 }
