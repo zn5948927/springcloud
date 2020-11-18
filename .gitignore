@@ -26,4 +26,5 @@
 /cloud-consumer-feign-hystrix-order80/target/
 /cloudalibaba-provider-payment9003/target/
 /cloudalibaba-provider-payment9004/target/
+/cloudalibaba-consumer-nacos-order84/target/
 /out/
