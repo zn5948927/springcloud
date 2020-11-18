@@ -2,9 +2,11 @@ package com.guigu.springcloud.alibaba.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.guigu.springcloud.alibaba.service.PaymentService;
 import com.guigu.springcloud.entities.CommonResult;
 import com.guigu.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,8 +32,8 @@ public class CircleBreakerController {
 
     @RequestMapping("/consumer/fallback/{id}")
     //@SentinelResource(value = "fallback") //没有配置
-    //@SentinelResource(value = "fallback",fallback = "handlerFallback") //fallback只负责业务异常
-    //@SentinelResource(value = "fallback",blockHandler = "blockHandler") //blockHandler只负责sentinel控制台配置违规
+//    @SentinelResource(value = "fallback",fallback = "handlerFallback") //fallback只负责业务异常
+//    @SentinelResource(value = "fallback",blockHandler = "blockHandler") //blockHandler只负责sentinel控制台配置违规
     @SentinelResource(value = "fallback", fallback = "handlerFallback", blockHandler = "blockHandler",
             exceptionsToIgnore = {IllegalArgumentException.class})
     public CommonResult<Payment> fallback(@PathVariable Long id) {
@@ -58,7 +60,16 @@ public class CircleBreakerController {
         return new CommonResult<>(445, "blockHandler-sentinel限流,无此流水: blockException  " + blockException.getMessage(), payment);
     }
 
+    /**
+     * OpenFeign
+     */
+    @Resource
+    private PaymentService paymentService;
 
+    @GetMapping(value = "/consumer/paymentSQL/{id}")
+    public CommonResult<Payment> paymentSQL(@PathVariable("id") Long id) {
+        return paymentService.paymentSQL(id);
+    }
 }
 
 
