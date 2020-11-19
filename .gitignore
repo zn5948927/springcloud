@@ -28,6 +28,6 @@
 /cloudalibaba-provider-payment9004/target/
 /cloudalibaba-consumer-nacos-order84/target/
 /seata-order-service2001/target/
-/seata-order-service2002/target/
-/seata-order-service2003/target/
+/seata-storage-service2002/target/
+/seata-account-service2003/target/
 /out/
